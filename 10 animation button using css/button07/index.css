@@ -1,0 +1,73 @@
+body{
+    background: rgb(45, 44, 44);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+.dynamic-button {
+    padding: 10px 30px;
+    border: none;
+    background-image: linear-gradient(45deg, #ff758c, #ff7eb3);
+    color: white;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s;
+  }
+
+  .dynamic-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, #ffffff40, #ffffff80);
+    transition: all 0.5s;
+    border-radius: 30px;
+  }
+
+  .dynamic-button:hover::before {
+    left: 100%;
+  }
+
+  .dynamic-button span {
+    position: relative;
+    z-index: 2;
+  }
+
+  .dynamic-button::after {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    top: -20px;
+    left: -120px;
+    pointer-events: none;
+  }
+
+  .dynamic-button:hover::after {
+    animation: follow-cursor 1.5s infinite;
+  }
+
+  @keyframes follow-cursor {
+    0% {
+      top: -20px;
+      left: -120px;
+    }
+    50% {
+      top: calc(100% - 100px);
+      left: calc(100% - 100px);
+    }
+    100% {
+      top: -20px;
+      left: -120px;
+    }
+  }

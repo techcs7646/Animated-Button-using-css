@@ -1,0 +1,75 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #f0f0f0;
+    overflow: hidden;
+    transition: background 2s ease;
+}
+
+.animated-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    transition: opacity 2s ease, transform 0.5s ease;
+}
+
+.animated-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.25) 20%, transparent 20%),
+                radial-gradient(circle, rgba(255,255,255,0.25) 20%, transparent 20%);
+    background-size: 50px 50px;
+    animation: move 2s linear infinite;
+    z-index: 0;
+}
+
+.animated-button span {
+    position: relative;
+    z-index: 1;
+}
+
+.animated-button:hover {
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+body:hover {
+    background: linear-gradient(45deg, #ff0066, #ffcc33, #33ccff, #ff6699, #66ccff);
+    background-size: 400% 400%;
+    animation: gradientAnimation 5s ease infinite;
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0, 25px 25px;
+    }
+    100% {
+        background-position: 50px 50px, 75px 75px;
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

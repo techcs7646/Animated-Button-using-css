@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #222;
+    margin: 0;
+  }
+  
+  .glowing-button {
+    font-family: inherit;
+    background: linear-gradient(45deg, #2CA0D9, #1E90FF, #2CA0D9, #1E90FF);
+    background-size: 400% 400%;
+    color: white;
+    padding: 0.35em 0;
+    font-size: 17px;
+    border: none;
+    border-radius: 0.7em;
+    letter-spacing: 0.08em;
+    position: relative;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 2.5em;
+    padding-left: 2.8em;
+    padding-right: 0.92em;
+    box-shadow: 0 0 10px rgba(46, 229, 157, 0.8), 0 0 40px rgba(46, 229, 157, 0.6), 0 0 80px rgba(46, 229, 157, 0.4);
+    animation: gradientMove 8s ease infinite;
+  }
+  
+  .glowing-button .icon {
+    background: #fff;
+    height: 2em;
+    width: 2em;
+    border-radius: 2em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0.4em;
+    transition: all 0.5s;
+  }
+  
+  .icon img {
+    margin-left: 0.1em;
+    transition: all 0.5s;
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  
+  .glowing-button:hover .icon img {
+    transform: rotate(360deg);
+  }
+  
+  .glowing-button:hover .icon {
+    width: calc(100% - 0.85rem);
+    border-radius: 0.5em;
+  }
+  
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
